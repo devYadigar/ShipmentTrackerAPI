@@ -1,0 +1,5 @@
+Django>=3.2.4,<4.0
+djangorestframework>=3.12.4,<3.13
+flake8>=3.9.2,<3.10
+mysqlclient>=2.0.3
+django-cors-headers>=3.3.2
