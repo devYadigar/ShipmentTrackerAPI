@@ -26,3 +26,6 @@ class ShipmentViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         """Create a new shipment"""
         serializer.save(user=self.request.user)
+
+    def perform_destroy(self, instance):
+        instance.delete()

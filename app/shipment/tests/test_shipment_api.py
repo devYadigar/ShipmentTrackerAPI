@@ -111,3 +111,13 @@ class PrivateShipmentAPITests(TestCase):
 
         res = self.client.patch(f"{SHIPMENT_URL}{shipment.id}/", wrong_payload)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_delete_shipment(self):
+        shipment = create_shipment(user=self.user)
+
+        res = self.client.delete(f"{SHIPMENT_URL}{shipment.id}/")
+        self.assertEqual(res.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertFalse(Shipment.objects.filter(id=shipment.id).exists())
+
+
+
